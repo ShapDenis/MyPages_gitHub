@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack')
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -29,7 +30,8 @@ module.exports = {
                     options: {
                         presets: ['@babel/preset-env']
                     }
-                }
+                },
+                // loader: 'eslint-loader',
             },
             {
                 test: /\.css$/i,
@@ -52,6 +54,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './public/index.html'
         }),
+        new ESLintPlugin({}),
         new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
