@@ -31,7 +31,6 @@ module.exports = {
                         presets: ['@babel/preset-env']
                     }
                 },
-                // loader: 'eslint-loader',
             },
             {
                 test: /\.css$/i,
