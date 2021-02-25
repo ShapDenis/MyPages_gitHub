@@ -6,6 +6,7 @@ import { store } from "./store";
 import { HomePage } from "./pages/HomePage";
 import { LoginPage } from "./pages/LoginPage";
 import { AuthorizedRouting } from "./AuthorizedRouting";
+import { AnonymousRouting } from "./AnonymousRouting";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,12 +14,11 @@ ReactDOM.render(
       <Router>
         <div>
           <Switch>
-            <AuthorizedRouting>
-              <HomePage />
-            </AuthorizedRouting>
-            {/*<Route path="/login">*/}
-            {/*  <LoginPage />*/}
-            {/*</Route>*/}
+            <AuthorizedRouting></AuthorizedRouting>
+            <AnonymousRouting
+              path={"/login"}
+              component={LoginPage}
+            ></AnonymousRouting>
           </Switch>
         </div>
       </Router>
