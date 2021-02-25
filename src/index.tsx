@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import { HomePage } from "./pages/HomePage";
 import { LoginPage } from "./pages/LoginPage";
+import { AuthorizedRouting } from "./AuthorizedRouting";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,12 +13,12 @@ ReactDOM.render(
       <Router>
         <div>
           <Switch>
-            <Route exact path="/">
+            <AuthorizedRouting>
               <HomePage />
-            </Route>
-            <Route path="/login">
-              <LoginPage />
-            </Route>
+            </AuthorizedRouting>
+            {/*<Route path="/login">*/}
+            {/*  <LoginPage />*/}
+            {/*</Route>*/}
           </Switch>
         </div>
       </Router>

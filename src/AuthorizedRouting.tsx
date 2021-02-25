@@ -1,0 +1,8 @@
+import React from "react";
+import { auth } from "./auth/slice/auth";
+import { Route } from "react-router-dom";
+import { HomePage } from "./pages/HomePage";
+
+export const AuthorizedRouting = () => {
+  return <Route exact path={"/"} component={HomePage}></Route> && { auth };
+};
