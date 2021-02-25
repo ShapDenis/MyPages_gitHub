@@ -1,7 +1,15 @@
 import React from "react";
-import {Route} from "react-router-dom";
+import { Route } from "react-router-dom";
+import { FunctionComponent } from "react";
 
+export const AnonymousRouting: FunctionComponent<Props> = ({
+  path,
+  component,
+}) => {
+  return <Route exact path={path} component={component} />;
+};
 
-export const AnonymousRouting = (props) => {
-    return <Route path={props.path} {props.component}></Route>;
+type Props = {
+  path: string;
+  component: React.ComponentType;
 };

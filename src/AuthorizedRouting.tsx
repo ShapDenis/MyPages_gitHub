@@ -1,7 +1,15 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { HomePage } from "./pages/HomePage";
+import { FunctionComponent } from "react";
 
-export const AuthorizedRouting = () => {
-  return <Route exact path={"/"} component={HomePage}></Route>;
+export const AuthorizedRouting: FunctionComponent<Props> = ({
+  path,
+  component,
+}) => {
+  return <Route exact path={path} component={component} />;
+};
+
+type Props = {
+  path: string;
+  component: React.ComponentType;
 };

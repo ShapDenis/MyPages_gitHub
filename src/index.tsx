@@ -14,11 +14,8 @@ ReactDOM.render(
       <Router>
         <div>
           <Switch>
-            <AuthorizedRouting></AuthorizedRouting>
-            <AnonymousRouting
-              path={"/login"}
-              component={LoginPage}
-            ></AnonymousRouting>
+            <AuthorizedRouting path={"/"} component={HomePage} />
+            <AnonymousRouting path={"/login"} component={LoginPage} />
           </Switch>
         </div>
       </Router>
