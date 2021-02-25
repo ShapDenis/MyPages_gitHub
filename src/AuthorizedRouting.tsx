@@ -5,11 +5,13 @@ import { FunctionComponent } from "react";
 export const AuthorizedRouting: FunctionComponent<Props> = ({
   path,
   component,
+  ...rest
 }) => {
-  return <Route exact path={path} component={component} />;
+  return <Route {...rest} path={path} component={component} />;
 };
 
 type Props = {
   path: string;
   component: React.ComponentType;
+  exact: boolean;
 };
