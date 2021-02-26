@@ -1,14 +1,14 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import { FunctionComponent } from "react";
-import { auth } from "./auth/slice/auth";
+import { isAuthSelector } from "../src/auth/selectors/isAuthSelector";
 
 export const AnonymousRouting: FunctionComponent<Props> = ({
   path,
   component,
   ...rest
 }) => {
-  if (auth) {
+  if (isAuthSelector) {
     return <Redirect to={"/"} />;
   } else {
     return <Route {...rest} path={path} component={component} />;

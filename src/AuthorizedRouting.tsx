@@ -1,14 +1,13 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import { FunctionComponent } from "react";
-import { auth } from "./auth/slice/auth";
-
+import { isAuthSelector } from "../src/auth/selectors/isAuthSelector";
 export const AuthorizedRouting: FunctionComponent<Props> = ({
   path,
   component,
   ...rest
 }) => {
-  if (auth) {
+  if (isAuthSelector) {
     return <Route {...rest} path={path} component={component} />;
   } else {
     return <Redirect to={"/login"} />;
