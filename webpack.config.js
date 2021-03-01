@@ -6,15 +6,6 @@ const ESLintPlugin = require("eslint-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: "./src/index.tsx",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
-    publicPath: "/",
-  },
-  resolve: {
-    // extensions: [".js", ".jsx"],
-    extensions: [".tsx", ".ts", ".js"],
-  },
   module: {
     rules: [
       {
@@ -40,17 +31,18 @@ module.exports = {
       },
 
       {
-        test: /\.(png|jpg|gif)$/i,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              limit: 8192,
-            },
-          },
-        ],
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
       },
     ],
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+  },
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+    publicPath: "/",
   },
   plugins: [
     new HtmlWebpackPlugin({
