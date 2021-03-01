@@ -1,11 +1,12 @@
 import React from "react";
 import { Header } from "../header/Header";
+import { loginPagesStyles } from "./LoginPageStyles";
 
 export const LoginPage = () => {
   return (
-    <div>
+    <div css={loginPagesStyles.wrap}>
       <Header />
-      <span>Login</span>;
+      <span css={loginPagesStyles.span}>Login</span>;
     </div>
   );
 };
