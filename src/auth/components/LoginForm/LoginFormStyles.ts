@@ -1,5 +1,4 @@
 import { css } from "@emotion/react";
-// @ts-ignore
 import loginWrap from "../images/loginWrap.png";
 
 export const loginFormStyles = {

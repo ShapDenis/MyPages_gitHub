@@ -8,7 +8,6 @@ export const LoginForm = () => {
         <div css={loginFormStyles.wrapLogin}>
           <span css={loginFormStyles.wrapLoginSpan}>sign in</span>
         </div>
-        {/*<Header />*/}
         <form css={loginFormStyles.formLogin}>
           <div css={loginFormStyles.formLoginUser}>
             <span css={loginFormStyles.formLoginUserName}>Username</span>

@@ -9,5 +9,6 @@
     "moduleResolution": "Node",
     "allowJs": true,
     "allowSyntheticDefaultImports": true
-  }
+  },
+  "include": ["src", "declareImport.d.ts"]
 }
