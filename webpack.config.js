@@ -29,19 +29,12 @@ module.exports = {
         use: "ts-loader",
         exclude: /node_modules/,
       },
-
       {
         test: /\.(png|jpe?g|gif|jp2|webp)$/,
         loader: "file-loader",
         options: {
           name: "images/[name].[ext]",
         },
-        // test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        // loader: "file-loader",
-        // options: {
-        //   name: "[name].[ext]",
-        // },
-        // type: "asset/resource",
       },
     ],
   },
