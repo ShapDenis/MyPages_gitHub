@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import loginWrap from "./images/loginWrap.png";
 
 export const loginPagesStyles = {
   containerLogin: css`
@@ -10,25 +11,28 @@ export const loginPagesStyles = {
     min-height: 100vh;
   `,
   wrap: css`
-    width: 670px;
+    width: 600px;
     border-radius: 10px;
     background: white;
   `,
   wrapLogin: css`
-    background-image: url(./images/loginWrap.png);
+    background-image: url(${loginWrap});
+    border-radius: 10px 10px 0px 0px;
+    background-size: 600px auto;
     text-align: center;
   `,
   wrapLoginSpan: css`
-    color: gray;
+    color: darkgrey;
     font-size: 30px;
     text-transform: uppercase;
     font-family: "Britannic Bold";
+    line-height: 150px;
   `,
-  formLorinUser: css``,
-  formLorin: css`
-    padding: 43px 88px 93px 190px;
+  formLoginUser: css``,
+  formLogin: css`
+    padding: 43px 88px 70px 190px;
   `,
-  formLorinUserName: css`
+  formLoginUserName: css`
     text-align: right;
     color: grey;
     position: relative;
@@ -36,18 +40,19 @@ export const loginPagesStyles = {
     top: 32px;
   `,
 
-  formLorinInput: css`
+  formLoginInput: css`
     color: grey;
     height: 45px;
     border: none;
     width: 100%;
     border-bottom: 1px solid #b2b2b2;
+    outline: none;
   `,
-  formLorinButton: css`
+  formLoginButton: css`
     padding-top: 30px;
   `,
-  formLorinButtonLogin: css`
-    background-color: darkgreen;
+  formLoginButtonLogin: css`
+    background-color: green;
     color: white;
     border-radius: 5px;
     min-width: 160px;

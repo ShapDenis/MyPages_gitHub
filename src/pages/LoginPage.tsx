@@ -10,28 +10,28 @@ export const LoginPage = () => {
           <span css={loginPagesStyles.wrapLoginSpan}>sign in</span>
         </div>
         {/*<Header />*/}
-        <form css={loginPagesStyles.formLorin}>
-          <div css={loginPagesStyles.formLorinUser}>
-            <span css={loginPagesStyles.formLorinUserName}>Username</span>
+        <form css={loginPagesStyles.formLogin}>
+          <div css={loginPagesStyles.formLoginUser}>
+            <span css={loginPagesStyles.formLoginUserName}>Username</span>
             <input
-              css={loginPagesStyles.formLorinInput}
+              css={loginPagesStyles.formLoginInput}
               type="text"
               name="username"
               placeholder="Enter username"
             />
           </div>
-          <div css={loginPagesStyles.formLorinUser}>
-            <span css={loginPagesStyles.formLorinUserName}>Password</span>
+          <div css={loginPagesStyles.formLoginUser}>
+            <span css={loginPagesStyles.formLoginUserName}>Password</span>
             <input
               type="password"
               name="pass"
-              css={loginPagesStyles.formLorinInput}
+              css={loginPagesStyles.formLoginInput}
               placeholder="Enter password"
             />
           </div>
 
-          <div css={loginPagesStyles.formLorinButton}>
-            <button css={loginPagesStyles.formLorinButtonLogin}>Login</button>
+          <div css={loginPagesStyles.formLoginButton}>
+            <button css={loginPagesStyles.formLoginButtonLogin}>Login</button>
           </div>
         </form>
       </div>
