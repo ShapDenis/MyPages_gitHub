@@ -1,7 +1,8 @@
 import { css } from "@emotion/react";
-import loginWrap from "./images/loginWrap.png";
+// @ts-ignore
+import loginWrap from "../images/loginWrap.png";
 
-export const loginPagesStyles = {
+export const loginFormStyles = {
   containerLogin: css`
     display: flex;
     justify-content: center;
