@@ -1,7 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
+import { useCallback } from "react";
+import { useDispatch } from "react-redux";
 import { loginFormStyles } from "./LoginFormStyles";
+import { client } from "../../api/api";
 
 export const LoginForm = () => {
+  const dispatch = useDispatch();
+  const [token, setToken] = useState("");
+
+  // useEffect(() => {
+  //   // client(token);
+  // }, []);
+
+  const onTokenChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    debugger;
+    setToken(e.currentTarget.value);
+  }, []);
+
+  const onClickLogin = () => {
+    client(token);
+    console.log(client(token));
+  };
+
   return (
     <div css={loginFormStyles.containerLogin}>
       <div css={loginFormStyles.wrap}>
@@ -10,25 +30,21 @@ export const LoginForm = () => {
         </div>
         <form css={loginFormStyles.formLogin}>
           <div css={loginFormStyles.formLoginUser}>
-            <span css={loginFormStyles.formLoginUserName}>Username</span>
+            <span css={loginFormStyles.formLoginUserName}>Token</span>
             <input
+              type="token"
+              name="token"
               css={loginFormStyles.formLoginInput}
-              type="text"
-              name="username"
-              placeholder="Enter username"
-            />
-          </div>
-          <div css={loginFormStyles.formLoginUser}>
-            <span css={loginFormStyles.formLoginUserName}>Password</span>
-            <input
-              type="password"
-              name="pass"
-              css={loginFormStyles.formLoginInput}
-              placeholder="Enter password"
+              placeholder="Enter token"
             />
           </div>
           <div css={loginFormStyles.formLoginButton}>
-            <button css={loginFormStyles.formLoginButtonLogin}>Login</button>
+            <button
+              onClick={onClickLogin}
+              css={loginFormStyles.formLoginButtonLogin}
+            >
+              Login
+            </button>
           </div>
         </form>
       </div>

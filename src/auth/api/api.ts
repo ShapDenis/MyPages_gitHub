@@ -1,11 +1,13 @@
 import axios from "axios";
 import { APP_API_URL } from "../constans";
 
-axios({
-  method: "post",
-  baseURL: APP_API_URL,
-  data: {
-    Username: "login",
-    Password: "Password",
-  },
-});
+export const client = (token: string) => {
+  return axios({
+    method: "get",
+    baseURL: APP_API_URL,
+    headers: { Authorization: token },
+    withCredentials: true,
+  }).then(({ data }) => {
+    console.log(data);
+  });
+};
