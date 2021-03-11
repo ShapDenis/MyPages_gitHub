@@ -1,5 +1,5 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
-import { useCallback } from "react";
+import React, { useEffect, useState } from "react";
+
 import { useDispatch } from "react-redux";
 import { loginFormStyles } from "./LoginFormStyles";
 import { client } from "../../api/api";
@@ -8,18 +8,10 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
   const [token, setToken] = useState("");
 
-  // useEffect(() => {
-  //   // client(token);
-  // }, []);
-
-  const onTokenChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    debugger;
-    setToken(e.currentTarget.value);
-  }, []);
+  useEffect(() => {}, []);
 
   const onClickLogin = () => {
     client(token);
-    console.log(client(token));
   };
 
   return (
@@ -34,6 +26,7 @@ export const LoginForm = () => {
             <input
               type="token"
               name="token"
+              onChange={(e) => setToken(e.target.value)}
               css={loginFormStyles.formLoginInput}
               placeholder="Enter token"
             />
