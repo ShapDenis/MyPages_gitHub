@@ -1,3 +1,4 @@
-const feature = "@auth";
-export const APP_API_URL = "https://api.github.com";
-// export const token = "57f386bb5335b8e10f9e492f30b4dee8784cdd6d";
+export const feature = "@auth";
+export const APP_API_URL = "https://github.com/login/oauth/authorize";
+// export const token = 'token 1f5493688aa137c3a2cb4ffadadec250dc0ea49a';
+export const clientID = "8b883819756ab442330b";

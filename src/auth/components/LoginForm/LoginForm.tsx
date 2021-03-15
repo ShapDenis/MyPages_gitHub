@@ -1,17 +1,32 @@
 import React, { useEffect, useState } from "react";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginFormStyles } from "./LoginFormStyles";
 import { client } from "../../api/api";
+import { isAuthSelector } from "../../selectors/isAuthSelector";
+import { loginAction } from "../../actions/login";
+import axios from "axios";
 
 export const LoginForm = () => {
+  const isAuth = useSelector(isAuthSelector);
   const dispatch = useDispatch();
   const [token, setToken] = useState("");
 
-  useEffect(() => {}, []);
-
   const onClickLogin = () => {
-    client(token);
+    window.open(
+      "https://github.com/login/oauth/authorize/?client_id=8b883819756ab442330b"
+    );
+  };
+
+  const code = () => {
+    axios
+      .post(
+        "https://github.com/login/oauth/authorize/?client_id=8b883819756ab442330b"
+      )
+      .then((res) => {
+        res.data;
+        console.log(res.data);
+      });
   };
 
   return (
@@ -33,11 +48,17 @@ export const LoginForm = () => {
           </div>
           <div css={loginFormStyles.formLoginButton}>
             <button
+              name="data"
+              type="button"
               onClick={onClickLogin}
               css={loginFormStyles.formLoginButtonLogin}
             >
               Login
             </button>
+
+            <a href="https://github.com/login/oauth/authorize?client_id=8b883819756ab442330b">
+              Login
+            </a>
           </div>
         </form>
       </div>

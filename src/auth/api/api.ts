@@ -6,8 +6,7 @@ export const client = (token: string) => {
     method: "get",
     baseURL: APP_API_URL,
     headers: { authorization: token },
-  }).then((data: any) => {
-    debugger;
+  }).then(({ data }) => {
     console.log(data);
   });
 };
