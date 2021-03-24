@@ -3,6 +3,7 @@ import { loginFormStyles } from "./LoginFormStyles";
 import { useDispatch } from "react-redux";
 
 import { loginAction } from "../../actions/login";
+import { auth } from "../../slice/auth";
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -13,17 +14,12 @@ export const LoginForm = () => {
     document.cookie = "Login=" + login;
     document.cookie = "Pass=" + pass;
   }
-
-  // const cookieLogin = document.cookie.replace(
-  //   /(?:(?:^|.*;\s*)Login\s*\=\s*([^;]*).*$)|^.*$/,
-  //   "$1"
-  // );
-  // const cookiePass = document.cookie.replace(
-  //   /(?:(?:^|.*;\s*)Pass\s*\=\s*([^;]*).*$)|^.*$/,
-  //   "$1"
-  // );
   const onClickLogin = (): void => {
-    dispatch(loginAction({ login: login, password: pass }));
+    // dispatch(loginAction({ login: login, password: pass }));
+    auth(
+      { isAuth: true, cookieLogin: login, cookiePass: pass },
+      loginAction({ login: login, password: pass })
+    );
   };
 
   return (
