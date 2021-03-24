@@ -1,18 +1,29 @@
 import React, { useState } from "react";
-import { clientID, clientSecret } from "../../constans";
 import { loginFormStyles } from "./LoginFormStyles";
+import { useDispatch } from "react-redux";
+
+import { loginAction } from "../../actions/login";
 
 export const LoginForm = () => {
-  const [token, setToken] = useState("");
+  const dispatch = useDispatch();
+  const [login, setLogin] = useState("");
+  const [pass, setPass] = useState("");
+  if (login) {
+    //бредовое решение(((
+    document.cookie = "Login=" + login;
+    document.cookie = "Pass=" + pass;
+  }
 
-  const cookieValue = document.cookie.replace(
-    /(?:(?:^|.*;\s*)responseCode\s*\=\s*([^;]*).*$)|^.*$/,
-    "$1"
-  );
+  // const cookieLogin = document.cookie.replace(
+  //   /(?:(?:^|.*;\s*)Login\s*\=\s*([^;]*).*$)|^.*$/,
+  //   "$1"
+  // );
+  // const cookiePass = document.cookie.replace(
+  //   /(?:(?:^|.*;\s*)Pass\s*\=\s*([^;]*).*$)|^.*$/,
+  //   "$1"
+  // );
   const onClickLogin = (): void => {
-    if (cookieValue) {
-      alert("ddddd");
-    }
+    dispatch(loginAction({ login: login, password: pass }));
   };
 
   return (
@@ -23,13 +34,23 @@ export const LoginForm = () => {
         </div>
         <form css={loginFormStyles.formLogin}>
           <div css={loginFormStyles.formLoginUser}>
-            <span css={loginFormStyles.formLoginUserName}>Token</span>
+            <span css={loginFormStyles.formLoginUserName}>Login</span>
             <input
-              type="token"
-              name="token"
-              onChange={(e) => setToken(e.target.value)}
+              type="login"
+              name="login"
+              onChange={(e) => setLogin(e.target.value)}
               css={loginFormStyles.formLoginInput}
-              placeholder="Enter token"
+              placeholder="Enter login"
+            />
+          </div>
+          <div css={loginFormStyles.formLoginUser}>
+            <span css={loginFormStyles.formLoginUserName}>Password</span>
+            <input
+              type="password"
+              name="password"
+              onChange={(e) => setPass(e.target.value)}
+              css={loginFormStyles.formLoginInput}
+              placeholder="Enter password"
             />
           </div>
           <div css={loginFormStyles.formLoginButton}>

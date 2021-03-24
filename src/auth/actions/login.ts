@@ -3,6 +3,6 @@ import { feature } from "../constans";
 
 const actionName = "token";
 
-export const loginAction = createAction<{ token: string }>(
+export const loginAction = createAction<{ login: string; password: string }>(
   `${feature}:${actionName}`
 );

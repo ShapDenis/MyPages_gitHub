@@ -4,8 +4,10 @@ const authSlice = createSlice({
   name: "auth",
   initialState: {
     isAuth: false,
-    responseCode: "",
+    cookieLogin: "",
+    cookiePass: "",
   },
+
   reducers: {},
 });
 export const auth = authSlice.reducer;
