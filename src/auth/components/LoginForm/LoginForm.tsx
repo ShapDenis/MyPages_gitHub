@@ -1,25 +1,19 @@
 import React, { useState } from "react";
 import { loginFormStyles } from "./LoginFormStyles";
 import { useDispatch } from "react-redux";
-
-import { loginAction } from "../../actions/login";
-import { auth } from "../../slice/auth";
+import { login } from "../../slice/auth";
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
-  const [login, setLogin] = useState("");
+  const [log, setLogin] = useState("");
   const [pass, setPass] = useState("");
-  if (login) {
+  if (log) {
     //бредовое решение(((
-    document.cookie = "Login=" + login;
+    document.cookie = "Login=" + log;
     document.cookie = "Pass=" + pass;
   }
   const onClickLogin = (): void => {
-    // dispatch(loginAction({ login: login, password: pass }));
-    auth(
-      { isAuth: true, cookieLogin: login, cookiePass: pass },
-      loginAction({ login: login, password: pass })
-    );
+    dispatch(login());
   };
 
   return (
