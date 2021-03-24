@@ -1,38 +1,19 @@
 import React, { useState } from "react";
 import { clientID, clientSecret } from "../../constans";
 import { loginFormStyles } from "./LoginFormStyles";
-import axios from "axios";
-import * as url from "url";
 
 export const LoginForm = () => {
   const [token, setToken] = useState("");
-  const onClickLogin = (): void => {
-    window.open(
-      `https://github.com/login/oauth/authorize/?client_id=${clientID}`
-    );
-    window.close();
-  };
+
   const cookieValue = document.cookie.replace(
-    /(?:(?:^|.*;\s*)responseCodeGitHub\s*\=\s*([^;]*).*$)|^.*$/,
+    /(?:(?:^|.*;\s*)responseCode\s*\=\s*([^;]*).*$)|^.*$/,
     "$1"
   );
-  if (cookieValue) {
-    axios
-      .post("https://github.com/login/oauth/access_token", {
-        client_id: clientID,
-        client_secret: clientSecret,
-        code: cookieValue,
-        Accept: "application / json",
-      })
-      .then((response) => {
-        console.log(response.data);
-        console.log(response.status);
-      })
-      .catch((error) => {
-        console.log("error");
-        return "error";
-      });
-  }
+  const onClickLogin = (): void => {
+    if (cookieValue) {
+      alert("ddddd");
+    }
+  };
 
   return (
     <div css={loginFormStyles.containerLogin}>
