@@ -1,33 +1,38 @@
-import React, { useEffect, useState } from "react";
-
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { clientID, clientSecret } from "../../constans";
 import { loginFormStyles } from "./LoginFormStyles";
-import { client } from "../../api/api";
-import { isAuthSelector } from "../../selectors/isAuthSelector";
-import { loginAction } from "../../actions/login";
 import axios from "axios";
+import * as url from "url";
 
 export const LoginForm = () => {
-  const isAuth = useSelector(isAuthSelector);
-  const dispatch = useDispatch();
   const [token, setToken] = useState("");
-
-  const onClickLogin = () => {
+  const onClickLogin = (): void => {
     window.open(
-      "https://github.com/login/oauth/authorize/?client_id=8b883819756ab442330b"
+      `https://github.com/login/oauth/authorize/?client_id=${clientID}`
     );
+    window.close();
   };
-
-  const code = () => {
+  const cookieValue = document.cookie.replace(
+    /(?:(?:^|.*;\s*)responseCodeGitHub\s*\=\s*([^;]*).*$)|^.*$/,
+    "$1"
+  );
+  if (cookieValue) {
     axios
-      .post(
-        "https://github.com/login/oauth/authorize/?client_id=8b883819756ab442330b"
-      )
-      .then((res) => {
-        res.data;
-        console.log(res.data);
+      .post("https://github.com/login/oauth/access_token", {
+        client_id: clientID,
+        client_secret: clientSecret,
+        code: cookieValue,
+        Accept: "application / json",
+      })
+      .then((response) => {
+        console.log(response.data);
+        console.log(response.status);
+      })
+      .catch((error) => {
+        console.log("error");
+        return "error";
       });
-  };
+  }
 
   return (
     <div css={loginFormStyles.containerLogin}>
@@ -49,13 +54,12 @@ export const LoginForm = () => {
           <div css={loginFormStyles.formLoginButton}>
             <button
               name="data"
-              type="button"
+              // type="button"
               onClick={onClickLogin}
               css={loginFormStyles.formLoginButtonLogin}
             >
               Login
             </button>
-
             <a href="https://github.com/login/oauth/authorize?client_id=8b883819756ab442330b">
               Login
             </a>
