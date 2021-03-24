@@ -12,6 +12,7 @@ export const LoginForm = () => {
     document.cookie = "Login=" + log;
     document.cookie = "Pass=" + pass;
   }
+
   const onClickLogin = (): void => {
     dispatch(login());
   };
