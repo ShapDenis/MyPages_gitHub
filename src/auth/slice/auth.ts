@@ -1,11 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { feature } from "../constants";
 
 export const loginAsync = createAsyncThunk(
   "${feature}/login",
   async (login, thunkAPI) => {}
 );
 export const logoutAsync = createAsyncThunk(
-  "users/logout",
+  `${feature}/login`,
   async (login, thunkAPI) => {}
 );
 const authSlice = createSlice({
