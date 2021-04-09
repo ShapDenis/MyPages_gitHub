@@ -4,6 +4,5 @@ export const globalStyles = css`
   body,
   #root {
     margin: 0;
-    background-image: url(https://storge.pic2.me/upload/969/5c88d77aae74c.jpg);
   }
 `;
