@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { loginFormStyles } from "./LoginFormStyles";
 import { useDispatch } from "react-redux";
-import { login as loginAction } from "../../slice/auth";
-
+import { loginAsync } from "../../slice/auth";
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const [login, setLogin] = useState("");
   const [pass, setPass] = useState("");
 
-  const onClickLogin = (login: string, pass: string) => {
-    dispatch(loginAction());
+  const onClickLogin = () => {
+    dispatch(loginAsync());
   };
 
   return (
@@ -42,15 +41,11 @@ export const LoginForm = () => {
           <div css={loginFormStyles.formLoginButton}>
             <button
               name="data"
-              // type="button"
-              onClick={() => onClickLogin(login, pass)}
+              onClick={onClickLogin}
               css={loginFormStyles.formLoginButtonLogin}
             >
               Login
             </button>
-            <a href="https://github.com/login/oauth/authorize?client_id=8b883819756ab442330b">
-              Login
-            </a>
           </div>
         </form>
       </div>

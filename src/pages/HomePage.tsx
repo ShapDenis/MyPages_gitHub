@@ -1,11 +1,6 @@
 import React from "react";
-import { Header } from "../header/Header";
+import { HomeForm } from "../components/HomeForm/HomeForm";
 
 export const HomePage = () => {
-  return (
-    <div>
-      <Header />
-      <span>Home</span>
-    </div>
-  );
+  return <HomeForm />;
 };

@@ -1,39 +1,29 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { LoginForm } from "../components/LoginForm/LoginForm";
 
-const loginAsync = createAsyncThunk(
-  "users/fetchByIdStatus",
-  async (login, thunkAPI) => {
-    const response = await LoginForm;
-    return response;
-  }
+export const loginAsync = createAsyncThunk(
+  "users/login",
+  async (login, thunkAPI) => {}
 );
-
+export const logoutAsync = createAsyncThunk(
+  "users/logout",
+  async (login, thunkAPI) => {}
+);
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    isAuth: false,
+    isAuth: true,
     cookieLogin: "",
     cookiePass: "",
   },
-
-  reducers: {
-    login: (state) => {
-      state.isAuth = true;
-    },
-    logoutAction: (state) => {
-      state.isAuth = false;
-    },
-  },
+  reducers: {},
   extraReducers: {
-    [loginAsync.pending.type]: (state, action) => {
+    [loginAsync.fulfilled.type]: (state, action) => {
       state.isAuth = true;
     },
-    [loginAsync.fulfilled.type]: (state, action) => {
+    [logoutAsync.fulfilled.type]: (state, action) => {
       state.isAuth = false;
     },
   },
 });
 
 export const auth = authSlice.reducer;
-export const { login, logoutAction } = authSlice.actions;
