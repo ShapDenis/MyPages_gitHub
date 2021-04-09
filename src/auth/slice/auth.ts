@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const loginAsync = createAsyncThunk(
-  "users/login",
+  "${feature}/login",
   async (login, thunkAPI) => {}
 );
 export const logoutAsync = createAsyncThunk(
@@ -11,7 +11,7 @@ export const logoutAsync = createAsyncThunk(
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    isAuth: true,
+    isAuth: false,
     cookieLogin: "",
     cookiePass: "",
   },

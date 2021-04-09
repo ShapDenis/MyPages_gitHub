@@ -13,21 +13,15 @@ export const Header = () => {
     <div css={HeaderStyles.HeaderWrap}>
       <nav css={HeaderStyles.HeaderNav}>
         <ul css={HeaderStyles.HeaderNavLists}>
-          <li css={HeaderStyles.HeaderNavList}>
-            <Link css={HeaderStyles.HeaderNavListLink} to="/">
-              Home
-            </Link>
-          </li>
-          <li css={HeaderStyles.HeaderNavList}>
-            <Link css={HeaderStyles.HeaderNavListLink} to="/login">
-              Users
-            </Link>
-          </li>
-          <li css={HeaderStyles.HeaderNavList}>
-            <Link css={HeaderStyles.HeaderNavListLink} to="/login">
-              Photo
-            </Link>
-          </li>
+          <Link css={HeaderStyles.HeaderNavListLink} to="/">
+            <li css={HeaderStyles.HeaderNavList}>Home</li>
+          </Link>
+          <Link css={HeaderStyles.HeaderNavListLink} to="/login">
+            <li css={HeaderStyles.HeaderNavList}>Users</li>
+          </Link>
+          <Link css={HeaderStyles.HeaderNavListLink} to="/login">
+            <li css={HeaderStyles.HeaderNavList}>Photo</li>
+          </Link>
         </ul>
         <div>
           <button

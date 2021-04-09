@@ -7,10 +7,13 @@ import { HomePage } from "./pages/HomePage";
 import { LoginPage } from "./pages/LoginPage";
 import { AuthorizedRouting } from "./AuthorizedRouting";
 import { AnonymousRouting } from "./AnonymousRouting";
+import { globalStyles } from "./Global";
+import { Global } from "@emotion/react";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      <Global styles={globalStyles} />
       <Router>
         <div>
           <Switch>

@@ -34,6 +34,9 @@ export const HeaderStyles = {
     color: darkcyan;
     text-decoration: none;
     font-weight: bold;
+    &:hover {
+      color: black;
+    }
   `,
 
   formLogoutButtonLogin: css`
