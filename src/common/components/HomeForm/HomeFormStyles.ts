@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import loginWrap from "../HomeForm/images/wrap.jpg";
+import loginWrap from "./images/wrap.jpg";
 
 export const HomeFormStyles = {
   wrap: css`

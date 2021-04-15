@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { HeaderStyles } from "./HeaderStyles";
 import { useDispatch } from "react-redux";
-import { logoutAsync } from "../auth/slice/auth";
+import { logoutAsync } from "../../../auth/slice/auth";
 
 export const Header = () => {
   const dispatch = useDispatch();
