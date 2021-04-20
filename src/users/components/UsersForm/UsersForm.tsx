@@ -3,15 +3,15 @@ import { UsersFormStyles } from "./UsersFormStyles";
 import { Header } from "../../../common/components/header/Header";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { userAsync } from "../../slice/users";
-import { userSelector } from "../../selectors/userSelector";
+import { getUsers } from "../../slice/users";
+import { usersSelector } from "../../selectors/usersSelector";
 
 export const UsersForm = () => {
   const dispatch = useDispatch();
-  const users = useSelector(userSelector);
+  const users = useSelector(usersSelector);
   let usersList;
   useEffect(() => {
-    dispatch(userAsync());
+    dispatch(getUsers());
   }, []);
 
   if (users.length > 0) {

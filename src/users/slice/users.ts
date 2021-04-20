@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { feature } from "../../auth/constants";
+import { logoutAsync } from "../../auth/slice/auth";
 
-export const userAsync = createAsyncThunk("${feature}/login", async () => {
+export const getUsers = createAsyncThunk(`${feature}/getUsers`, async () => {
   const response = await fetch(`https://jsonplaceholder.typicode.com/users`);
   const data = await response.json();
   return data;
@@ -11,8 +13,11 @@ export const usersSlice = createSlice({
   initialState: [],
   reducers: {},
   extraReducers: {
-    [userAsync.fulfilled.type]: (state, action) => {
+    [getUsers.fulfilled.type]: (state, action) => {
       state.push(...action.payload);
+    },
+    [logoutAsync.fulfilled.type]: (state, action) => {
+      state.length = 0;
     },
   },
 });
