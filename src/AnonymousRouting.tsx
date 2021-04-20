@@ -12,7 +12,7 @@ export const AnonymousRouting: FunctionComponent<Props> = ({
   const isAuth = useSelector(isAuthSelector);
 
   if (isAuth) {
-    return <Redirect to={"/"} />;
+    return <Redirect to={"/Users"} />;
   } else {
     return <Route {...rest} path={path} component={component} />;
   }
