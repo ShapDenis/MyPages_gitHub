@@ -1,1 +1,1 @@
-export const feature = "@auth";
+export const feature = "@user";

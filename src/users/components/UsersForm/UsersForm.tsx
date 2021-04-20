@@ -10,9 +10,10 @@ export const UsersForm = () => {
   const dispatch = useDispatch();
   const users = useSelector(usersSelector);
   useEffect(() => {
-    dispatch(getUsers());
+    if (users.length === 0) {
+      dispatch(getUsers());
+    }
   }, []);
-
   return (
     <>
       <Header />
