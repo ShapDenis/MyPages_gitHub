@@ -2,8 +2,11 @@ import { css } from "@emotion/react";
 
 export const UsersFormStyles = {
   wrap: css`
+    padding-top: 25px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+    margin: 0 auto;
   `,
   usersLink: css`
     text-decoration: none;

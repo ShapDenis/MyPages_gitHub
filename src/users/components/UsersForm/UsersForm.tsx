@@ -9,14 +9,14 @@ import { usersSelector } from "../../selectors/usersSelector";
 export const UsersForm = () => {
   const dispatch = useDispatch();
   const users = useSelector(usersSelector);
-  let usersList;
   useEffect(() => {
     dispatch(getUsers());
   }, []);
 
-  if (users.length > 0) {
-    usersList = (
-      <ul>
+  return (
+    <>
+      <Header />
+      <div css={UsersFormStyles.wrap}>
         {users.map((user) => {
           return (
             <a css={UsersFormStyles.usersLink} key={user.id} href="/">
@@ -24,13 +24,7 @@ export const UsersForm = () => {
             </a>
           );
         })}
-      </ul>
-    );
-  }
-  return (
-    <>
-      <Header />
-      <div css={UsersFormStyles.wrap}>{usersList}</div>
+      </div>
     </>
   );
 };
