@@ -10,7 +10,8 @@ export const UsersForm = () => {
   const dispatch = useDispatch();
   const users = useSelector(usersSelector);
   useEffect(() => {
-    if (users.length === 0) {
+    console.log(users);
+    if (users.ids.length === 0) {
       dispatch(getUsers());
     }
   }, []);
@@ -18,10 +19,10 @@ export const UsersForm = () => {
     <>
       <Header />
       <div css={UsersFormStyles.wrap}>
-        {users.map((user) => {
+        {users.ids.map((user) => {
           return (
-            <a css={UsersFormStyles.usersLink} key={user.id} href="/">
-              <li css={UsersFormStyles.usersLinkList}>{user.name}</li>
+            <a css={UsersFormStyles.usersLink} href="/">
+              <li css={UsersFormStyles.usersLinkList}>{user}</li>
             </a>
           );
         })}
