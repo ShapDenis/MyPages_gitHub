@@ -9,6 +9,7 @@ import { AuthorizedRouting } from "./AuthorizedRouting";
 import { AnonymousRouting } from "./AnonymousRouting";
 import { globalStyles } from "./Global";
 import { Global } from "@emotion/react";
+import { UsersPage } from "./pages/UsersPage";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,8 +18,9 @@ ReactDOM.render(
       <Router>
         <div>
           <Switch>
-            <AuthorizedRouting exact path={"/"} component={HomePage} />
             <AnonymousRouting exact path={"/login"} component={LoginPage} />
+            <AuthorizedRouting exact path={"/Users"} component={UsersPage} />
+            <AuthorizedRouting exact path={"/"} component={HomePage} />
           </Switch>
         </div>
       </Router>
