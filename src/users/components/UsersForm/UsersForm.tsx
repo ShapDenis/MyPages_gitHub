@@ -3,15 +3,14 @@ import { UsersFormStyles } from "./UsersFormStyles";
 import { Header } from "../../../common/components/header/Header";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsers } from "../../slice/users";
-import { usersSelector } from "../../selectors/usersSelector";
+import { getUsers, selectAll } from "../../slice/users";
 
 export const UsersForm = () => {
   const dispatch = useDispatch();
-  const users = useSelector(usersSelector);
+  const users = useSelector(selectAll);
+
   useEffect(() => {
-    console.log(users);
-    if (users.ids.length === 0) {
+    if (users.length === 0) {
       dispatch(getUsers());
     }
   }, []);
@@ -19,10 +18,10 @@ export const UsersForm = () => {
     <>
       <Header />
       <div css={UsersFormStyles.wrap}>
-        {users.ids.map((user) => {
+        {users.map((user) => {
           return (
-            <a css={UsersFormStyles.usersLink} href="/">
-              <li css={UsersFormStyles.usersLinkList}>{user}</li>
+            <a key={user.id} css={UsersFormStyles.usersLink} href="/">
+              <li css={UsersFormStyles.usersLinkList}>{user.name}</li>
             </a>
           );
         })}
