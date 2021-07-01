@@ -5,7 +5,7 @@ import { HomeFormStyles } from "./HomeFormStyles";
 export const HomeForm = () => {
   return (
     <div css={HomeFormStyles.wrap}>
-      <Header />;
+      <Header />
     </div>
   );
 };
