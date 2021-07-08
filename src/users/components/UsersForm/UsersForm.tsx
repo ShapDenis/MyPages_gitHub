@@ -3,7 +3,7 @@ import { UsersFormStyles } from "./UsersFormStyles";
 import { Header } from "../../../common/components/header/Header";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsers, selectAll } from "../../slice/users";
+import { getUsers, selectAll } from "../../slice/user";
 
 export const UsersForm = () => {
   const dispatch = useDispatch();
