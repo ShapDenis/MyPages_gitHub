@@ -24,7 +24,7 @@ export const UsersForm = () => {
           return (
             <span key={user.id} css={UsersFormStyles.usersLink} >
               <li css={UsersFormStyles.usersLinkList}>
-                  <Link to={`/Users/${user.id}`}>{user.name}</Link>
+                  <Link  css={UsersFormStyles.link} to={`/Users/${user.id}`}>{user.name}</Link>
               </li>
             </span>
           );

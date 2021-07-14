@@ -11,7 +11,8 @@ import { globalStyles } from "./Global";
 import { Global } from "@emotion/react";
 import { UsersPage } from "./pages/UsersPage";
 import {UserPageInfo} from "./pages/UserPageInfo";
-import {Photos} from "./pages/Photos";
+import {AlbumListPage} from "./pages/AlbumListPage";
+import {AlbumItemPage} from "./pages/AlbumItemPage";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -23,7 +24,8 @@ ReactDOM.render(
             <AnonymousRouting exact path={"/login"} component={LoginPage} />
             <AuthorizedRouting exact path={"/Users"} component={UsersPage} />
             <AuthorizedRouting exact path={"/Users/:id"} component={UserPageInfo} />
-            <AuthorizedRouting exact path={"/photos"} component={Photos} />
+            <AuthorizedRouting exact path={"/albums"} component={AlbumListPage} />
+            <AuthorizedRouting exact path={"/albums/:id/photos"} component={AlbumItemPage} />
             <AuthorizedRouting exact path={"/"} component={HomePage} />
           </Switch>
         </div>

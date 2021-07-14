@@ -20,7 +20,6 @@ export const UserFormInfo = ():React.ReactElement | null => {
                 });
         }
     }, [id])
-
     if (user){
         return (
             <div css={UserFormInfoStyles.wrapUser}>

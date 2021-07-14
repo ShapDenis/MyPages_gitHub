@@ -23,4 +23,8 @@ export const UsersFormStyles = {
     background-size: 100%;
     min-height: 100vh;
   `,
+    link: css`
+    text-decoration: none;
+    color: black;
+    `,
 };
