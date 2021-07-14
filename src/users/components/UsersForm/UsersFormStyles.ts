@@ -18,4 +18,9 @@ export const UsersFormStyles = {
       transition: all 1s;
     }
   `,
+    wrapUsers: css`
+    background: #ebeeef;
+    background-size: 100%;
+    min-height: 100vh;
+  `,
 };

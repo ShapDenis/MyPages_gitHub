@@ -19,8 +19,8 @@ export const Header = () => {
           <Link css={HeaderStyles.HeaderNavListLink} to="/login">
             <li css={HeaderStyles.HeaderNavList}>Users</li>
           </Link>
-          <Link css={HeaderStyles.HeaderNavListLink} to="/login">
-            <li css={HeaderStyles.HeaderNavList}>Photo</li>
+          <Link css={HeaderStyles.HeaderNavListLink} to="/photos">
+            <li css={HeaderStyles.HeaderNavList}>Gallery</li>
           </Link>
         </ul>
         <div>
